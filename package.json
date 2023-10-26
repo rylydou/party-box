@@ -2,17 +2,16 @@
 	"name": "party-box",
 	"version": "0.0.1",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"dev": "vite dev --host",
 		"build": "vite build",
 		"preview": "vite preview --host"
 	},
 	"devDependencies": {
-		"pixelbutler": "^0.2.0",
 		"sass": "^1.69.4",
 		"tslib": "^2.6.2",
 		"typescript": "^5.2.2",
 		"vite": "^4.5.0"
-	},
-	"type": "module"
+	}
 }

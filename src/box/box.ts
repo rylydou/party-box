@@ -11,7 +11,7 @@ export class Box {
 	swap_buffers() {
 		const temp = this.front_buffer
 		this.front_buffer = this.back_buffer
-		this.back_buffer = this.front_buffer
+		this.back_buffer = temp
 	}
 
 	update(updater_callback: (front: Buffer, back: Buffer) => void) {

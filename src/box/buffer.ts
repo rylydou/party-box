@@ -8,7 +8,7 @@ export class Buffer {
 	dirty_indices: Set<number>
 
 	get_index(x: number, y: number): number {
-		return x * this.width + y
+		return y * this.width + x
 	}
 
 	get_coord(index: number): [number, number] {

@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
-  pixelbutler:
-    specifier: ^0.2.0
-    version: 0.2.0
   sass:
     specifier: ^1.69.4
     version: 1.69.4
@@ -256,10 +253,6 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /dom-walk@0.1.2:
-    resolution: {integrity: sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==}
-    dev: true
-
   /esbuild@0.18.20:
     resolution: {integrity: sha512-ceqxoedUrcayh7Y7ZX6NdbbDzGROiyVBgC4PriJThBKSVPWnnFHZAkfI1lJT8QFkOwH4qOS2SJkS4wvpGl8BpA==}
     engines: {node: '>=12'}
@@ -312,13 +305,6 @@ packages:
       is-glob: 4.0.3
     dev: true
 
-  /global@4.3.2:
-    resolution: {integrity: sha512-/4AybdwIDU4HkCUbJkZdWpe4P6vuw/CUtu+0I1YlLIPe7OlUO7KNJ+q/rO70CW2/NW6Jc6I62++Hzsf5Alu6rQ==}
-    dependencies:
-      min-document: 2.19.0
-      process: 0.5.2
-    dev: true
-
   /immutable@4.3.4:
     resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
     dev: true
@@ -347,12 +333,6 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
-  /min-document@2.19.0:
-    resolution: {integrity: sha512-9Wy1B3m3f66bPPmU5hdA4DR4PB2OfDU/+GS3yAB7IQozE3tqXaVv2zOjgla7MEGSRv95+ILmOuvhLkOK6wJtCQ==}
-    dependencies:
-      dom-walk: 0.1.2
-    dev: true
-
   /nanoid@3.3.6:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -364,14 +344,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /once@1.1.1:
-    resolution: {integrity: sha512-frdJr++QKEg4+JylTX+NNLgSoO6M2pDNYOOXe4WGIYKKBADBI9nU3oa06y4D4FpAJ3obAsjExeBOnscYJB9Blw==}
-    dev: true
-
-  /parse-headers@2.0.5:
-    resolution: {integrity: sha512-ft3iAoLOB/MlwbNXgzy43SWGP6sQki2jQvAyBg/zDFAgr9bfNWZIUj42Kw2eJIl8kEi4PbgE6U1Zau/HwI75HA==}
-    dev: true
-
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
     dev: true
@@ -381,13 +353,6 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
-  /pixelbutler@0.2.0:
-    resolution: {integrity: sha512-iH6i1tdKJQfXnhS02Mh0qGjEQ3nZhKrcr5spCMAnTJIQu4iHBeJV2D4qoK3SuHV0yXIsMYFqOjNq4JEX3FwV4A==}
-    engines: {node: '>= 0.10.0'}
-    dependencies:
-      xhr: 1.17.1
-    dev: true
-
   /postcss@8.4.31:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
     engines: {node: ^10 || ^12 || >=14}
@@ -395,11 +360,6 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: true
-
-  /process@0.5.2:
-    resolution: {integrity: sha512-oNpcutj+nYX2FjdEW7PGltWhXulAnFlM0My/k48L90hARCOJtvBbQXc/6itV2jDvU5xAAtonP+r6wmQgCcbAUA==}
-    engines: {node: '>= 0.6.0'}
     dev: true
 
   /readdirp@3.6.0:
@@ -483,12 +443,4 @@ packages:
       sass: 1.69.4
     optionalDependencies:
       fsevents: 2.3.3
-    dev: true
-
-  /xhr@1.17.1:
-    resolution: {integrity: sha512-p5ef9y6Lsjq+mbGXp04zZBmPGomTcjT8wt3KGMyR2SrmX7d98ne6uN1su+YN9oshbapTkkCMa1xDHc9v9blhow==}
-    dependencies:
-      global: 4.3.2
-      once: 1.1.1
-      parse-headers: 2.0.5
     dev: true

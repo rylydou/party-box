@@ -4,9 +4,6 @@ import { Buffer } from '.'
 export function update_dirty(front: Buffer, back: Buffer): void {
 	back.dirty_indices.clear()
 
-	const w = front.width
-	const h = front.height
-
 	for (const index of front.dirty_indices) {
 		const [x, y] = front.get_coord(index)
 		update_tile(front, back, x, y)
@@ -18,8 +15,6 @@ export function update_all(front: Buffer, back: Buffer): void {
 
 	const w = front.width
 	const h = front.height
-	const fallback = 1000
-
 	for (let y = 0; y < h; y++) {
 		for (let x = 0; x < w; x++) {
 			update_tile(front, back, x, y)
