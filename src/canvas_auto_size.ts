@@ -20,8 +20,8 @@ function _scale_resize_window(canvas: HTMLCanvasElement): void {
 }
 
 function _scale_resize(canvas: HTMLCanvasElement, entry: ResizeObserverEntry): void {
-	var container_width = entry.contentBoxSize[0].inlineSize
-	var container_height = entry.contentBoxSize[0].blockSize
+	let container_width = entry.contentBoxSize[0].inlineSize
+	let container_height = entry.contentBoxSize[0].blockSize
 	container_width = window.innerWidth
 	container_height = window.innerHeight
 	let scale = Math.min(container_width / canvas.width, container_height / canvas.height)

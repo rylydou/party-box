@@ -1,67 +1,55 @@
-import { Color } from '../utils'
+import { RGBA } from '../utils'
 
 export class Bitmap {
-	width: number
-	height: number
-	use_alpha: boolean
-	channel_count: number
+	image_data: ImageData
 
-	buffer: ArrayBuffer
-	data: Uint8ClampedArray
+	get width() { return this.image_data.width }
+	get height() { return this.image_data.height }
 
-
-	constructor(width: number, height: number, use_alpha = false) {
-		this.width = width
-		this.height = height
-		this.channel_count = (use_alpha ? 4 : 3)
-		this._reset_data()
+	constructor(image_data: ImageData) {
+		this.image_data = image_data
 	}
 
 
-	private _reset_data(): void {
-		const buffer_size = this.width * this.height * this.channel_count
-		this.buffer = new ArrayBuffer(buffer_size)
-		this.data = new Uint8ClampedArray(this.buffer)
-	}
+	get_pixel(x: number, y: number): RGBA {
+		const width = this.image_data.width
+		const height = this.image_data.height
+		const data = this.image_data.data
 
-	resize(width: number, height: number): void {
-		if (this.width == width && this.height == height) return
-		this.width = width
-		this.height = height
-		this._reset_data()
-	}
-
-	get_pixel(x: number, y: number): Color {
 		x = Math.floor(x)
 		y = Math.floor(y)
-		if (x < 0 || y < 0 || x >= this.width || y >= this.height)
+		if (x < 0 || y < 0 || x >= width || y >= height)
 			return [0, 0, 0, 0]
 
-		const index = (y * this.width + x) * this.channel_count
+		const index = (y * this.image_data.width + x) * 4
 
-		const r = this.data[index + 0]
-		const g = this.data[index + 1]
-		const b = this.data[index + 2]
-		const a = this.use_alpha ? this.data[index + 3] : 255
+		const r = data[index + 0]
+		const g = data[index + 1]
+		const b = data[index + 2]
+		const a = data[index + 3]
 		return [r, g, b, a]
 	}
 
-	set_pixel(x: number, y: number, color: Color): void {
+	set_pixel(x: number, y: number, color: RGBA): void {
+		const width = this.image_data.width
+		const height = this.image_data.height
+		const data = this.image_data.data
+
 		x = Math.floor(x)
 		y = Math.floor(y)
-		if (x < 0 || y < 0 || x >= this.width || y >= this.height)
+		if (x < 0 || y < 0 || x >= width || y >= height)
 			return
 
-		const index = (y * this.width + x) * this.channel_count
+		const index = (y * width + x) * 4
 
-		this.data[index + 0] = color[0]
-		this.data[index + 1] = color[1]
-		this.data[index + 2] = color[2]
-		if (this.use_alpha)
-			this.data[index + 3] = color[3]
+		data[index + 0] = color[0]
+		data[index + 1] = color[1]
+		data[index + 2] = color[2]
+		data[index + 3] = color[3]
 	}
 
 	clear(): void {
-		this.data.fill(0)
+		const data = this.image_data.data
+		data.fill(0)
 	}
 }
