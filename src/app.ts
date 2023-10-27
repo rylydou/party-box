@@ -95,7 +95,6 @@ function draw() {
 	ctx.textAlign = 'left'
 	ctx.textBaseline = 'top'
 	ctx.fillText(`U:${update_time}ms D:${draw_time}ms`, 16, 16)
-	ctx.fillText(`I:${box.current_iteration}`, 16, 16 + 24)
 }
 
 

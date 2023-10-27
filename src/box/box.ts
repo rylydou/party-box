@@ -1,4 +1,4 @@
-import { Buffer, Tile, TileDefinition, TileData, create_tile, render_buffer_to_image_data, TileID } from '.'
+import { Tile, TileDefinition, create_tile, render_buffer_to_image_data, TileID } from '.'
 
 
 export interface BoxOptions {
@@ -13,10 +13,9 @@ export class Box {
 	size: number
 	tiles = new Map<TileID, Tile>()
 
-	data: TileData[]
+	data: TileID[]
+	updated_data: boolean[]
 	dirty_indices = new Set<number>()
-
-	current_iteration = 0
 
 
 	constructor(options: BoxOptions) {
@@ -32,16 +31,19 @@ export class Box {
 		}
 
 		this.data = Array(this.size)
+		this.data.fill(0)
+		this.updated_data = Array(this.size)
+		this.updated_data.fill(false)
+
 		for (let index = 0; index < this.size; index++) {
-			this.data[index] = [0, 0]
 			this.dirty_indices.add(index)
 		}
 	}
 
 
-	update(updater_callback: (box: Box, iteration: number) => void): void {
-		this.current_iteration++
-		updater_callback(this, this.current_iteration)
+	update(updater_callback: (box: Box) => void): void {
+		this.updated_data.fill(false)
+		updater_callback(this)
 	}
 
 	render_to_image_data(image_data: ImageData): void {
@@ -57,7 +59,7 @@ export class Box {
 		return [index % this.width, Math.floor(index / this.width)]
 	}
 
-	get_tile(x: number, y: number, fallback: TileData): TileData {
+	get_tile(x: number, y: number, fallback: TileID): TileID {
 		if (x < 0) return fallback
 		if (y < 0) return fallback
 		if (x >= this.width) return fallback
@@ -66,7 +68,7 @@ export class Box {
 		return this.data[index]
 	}
 
-	set_tile(x: number, y: number, tile: TileData): void {
+	set_tile(x: number, y: number, tile: TileID): void {
 		const index = this.get_index(x, y)
 		this.data[index] = tile
 		return
