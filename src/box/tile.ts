@@ -1,7 +1,6 @@
-import { RGBA } from '../utils'
+import { RGBA } from '../util'
 
 export type TileID = number
-// export type TileData = [number, number]
 
 export interface TileDefinition {
 	name: string

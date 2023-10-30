@@ -1,4 +1,4 @@
-import { RGBA } from './utils'
+import { RGBA } from './util'
 
 export class Bitmap {
 	width: number
