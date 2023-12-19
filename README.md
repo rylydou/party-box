@@ -1,3 +1,3 @@
 # Party Box
 
-A ***parti***cle simulation sand***box*** written in SvelteKit and powered by HTML Canvas
+A ***parti***cle simulation sand***box*** using Vite powered by HTML Canvas
